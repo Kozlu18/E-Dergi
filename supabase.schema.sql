@@ -44,26 +44,26 @@ create policy "Admin can read all magazines"
 on public.magazines
 for select
 to authenticated
-using (auth.email() = 'tekinyusufselim@gmail.com');
+using (auth.email() = '"Your mail"@gmail.com');
 
 create policy "Admin can insert magazines"
 on public.magazines
 for insert
 to authenticated
-with check (auth.email() = 'tekinyusufselim@gmail.com');
+with check (auth.email() = '"Your mail"@gmail.com');
 
 create policy "Admin can update magazines"
 on public.magazines
 for update
 to authenticated
-using (auth.email() = 'tekinyusufselim@gmail.com')
-with check (auth.email() = 'tekinyusufselim@gmail.com');
+using (auth.email() = '"Your mail"@gmail.com')
+with check (auth.email() = '"Your mail"@gmail.com');
 
 create policy "Admin can delete magazines"
 on public.magazines
 for delete
 to authenticated
-using (auth.email() = 'tekinyusufselim@gmail.com');
+using (auth.email() = '"Your mail"@gmail.com');
 
 insert into storage.buckets (id, name, public)
 values ('publications', 'publications', true)
@@ -85,7 +85,7 @@ for insert
 to authenticated
 with check (
   bucket_id = 'publications'
-  and auth.email() = 'tekinyusufselim@gmail.com'
+  and auth.email() = '"Your mail"@gmail.com'
 );
 
 create policy "Admin can update publication files"
@@ -94,11 +94,11 @@ for update
 to authenticated
 using (
   bucket_id = 'publications'
-  and auth.email() = 'tekinyusufselim@gmail.com'
+  and auth.email() = '"Your Mail"@gmail.com'
 )
 with check (
   bucket_id = 'publications'
-  and auth.email() = 'tekinyusufselim@gmail.com'
+  and auth.email() = '"Your mail"@gmail.com'
 );
 
 create policy "Admin can delete publication files"
@@ -107,5 +107,5 @@ for delete
 to authenticated
 using (
   bucket_id = 'publications'
-  and auth.email() = 'tekinyusufselim@gmail.com'
+  and auth.email() = '"Your mail"@gmail.com'
 );
